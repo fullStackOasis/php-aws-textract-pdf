@@ -65,11 +65,11 @@ Important! Textract cannot extract text from a PDF file if it is not in an S3 bu
 
 We need source code to do two separate things.
 
-First, one little program creates a Textract client, and uses the client to call `StartDocumentTextDetection`. Since `StartDocumentTextDetection`, you need to save the output, which is a 'JobId', and use it in your other little program. You can save the output in many different ways. In this example, we're just going to print the 'JobId' value, and then copy and paste it into our second program. It's inefficient, but works well for the purposes of a demo.
+First, one little program creates a Textract client, and uses the client to call `StartDocumentTextDetection`. Since `StartDocumentTextDetection` is asynchronous, you need to save the output, which is a 'JobId', and use it in your other little program. You can save the output in many different ways. In this example, we're just going to print the 'JobId' value, and then copy and paste it into our second program. It's inefficient, but works well for the purposes of a demo.
 
-After we have our 'JobId' pasted into our next program, we can run that program to get the extracted text.
+After we have our 'JobId' pasted into our second program, we can run that program to retrieve the extracted text.
 
-Here's the first little program called `textract_demo_StartDocumentTextDetection.php`. To run it, do: `php textract_demo_StartDocumentTextDetection.php`. But before doing that, make sure you've:
+Below is the first little program called `textract_demo_StartDocumentTextDetection.php`. To run it, do: `php textract_demo_StartDocumentTextDetection.php`. But before doing that, make sure you've:
 
 1. Set up your S3 bucket
 2. Uploaded your PDF file to the S3 bucket.
@@ -225,6 +225,6 @@ function processResult($blocks) {
 ?>
 ```
 
-Run this code with `php textract_demo_StartDocumentTextDetection.php`. You should see output with words and lines extracted from the PDF file.
+Run this code with `php textract_demo_GetDocumentTextDetection.php`. You should see output with words and lines extracted from the PDF file.
 
 That's it! Feel free to email me with any question at fullstackdev@fullstackoasis.com.
